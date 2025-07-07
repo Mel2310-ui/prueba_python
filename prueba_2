@@ -1,0 +1,16 @@
+import feedparser
+
+url = "https://www.20minutos.es/rss/"
+feed = feedparser.parse(url)
+
+palabras_clave = ["guerra", "politica", "ataque"]
+
+print("Noticias filtradas por palabra clave:\n")
+
+for entry in feed.entries:
+    texto = (entry.title + entry.summary).lower()
+    if any(palabra in texto for palabra in palabras_clave):
+        print("Título:", entry.title)
+        print("Publicado:", entry.published)
+        print("Enlace:", entry.link)
+        print("-" * 40)

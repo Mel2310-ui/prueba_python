@@ -1,0 +1,3 @@
+import feedparser
+d = feedparser.parse('https://www.reddit.com')
+print(d.feed.title)
